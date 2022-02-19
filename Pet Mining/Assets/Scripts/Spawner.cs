@@ -37,8 +37,10 @@ public class Spawner : MonoBehaviour
     {
         for (int i = 0; i < spawnAmount; i++)
         {
+            spawnAmount = Random.Range(2, spawnAmount);
+
             var spawnedObject = pool.Get();
-            spawnedObject.transform.position = transform.position + Random.insideUnitSphere * 2f;
+            spawnedObject.transform.position = transform.position + Random.insideUnitSphere * Random.Range(3f, 6f);
             spawnedObject.Init(KillObject);
         }
     }
@@ -46,6 +48,5 @@ public class Spawner : MonoBehaviour
     private void KillObject(MineralClickHandler mineral)
     {
         pool.Release(mineral);
-        //Destroy(mineral.gameObject);
     }
 }
