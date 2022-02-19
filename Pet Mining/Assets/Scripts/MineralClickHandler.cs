@@ -1,19 +1,17 @@
 using System;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class MineralClickHandler : MonoBehaviour, IPointerClickHandler
+public class MineralClickHandler : MonoBehaviour
 {
     public bool isPreciousOre;
 
     private Action<MineralClickHandler> OnKillAction;
 
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnObjectClicked()
     {
         if (!isPreciousOre)
             return;
 
-        Debug.Log("Oops");
         OnKillAction(this);
     }
 

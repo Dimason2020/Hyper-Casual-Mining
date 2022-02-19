@@ -23,7 +23,7 @@ public class MineralRandomizer : MonoBehaviour
 
     private Mesh ActivateRandomMineral()
     {
-        float spawn = UnityEngine.Random.Range(0, 101);
+        float spawn = Random.Range(0, 101);
 
         if (spawn <= goldSpawnChance)
         {
