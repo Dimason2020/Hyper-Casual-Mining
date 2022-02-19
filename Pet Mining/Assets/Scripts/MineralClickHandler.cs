@@ -5,13 +5,21 @@ public class MineralClickHandler : MonoBehaviour
 {
     public bool isPreciousOre;
 
+    private PointStorage pointStorage;
+
     private Action<MineralClickHandler> OnKillAction;
+
+    private void Start()
+    {
+        pointStorage = PointStorage.instance;
+    }
 
     public void OnObjectClicked()
     {
         if (!isPreciousOre)
             return;
 
+        pointStorage.AddPoints(5);
         OnKillAction(this);
     }
 
