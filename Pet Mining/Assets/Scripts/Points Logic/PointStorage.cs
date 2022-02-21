@@ -19,6 +19,10 @@ public class PointStorage : MonoBehaviour
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Start()
+    {
         OnPointsAmountChanged?.Invoke(Points);
     }
 

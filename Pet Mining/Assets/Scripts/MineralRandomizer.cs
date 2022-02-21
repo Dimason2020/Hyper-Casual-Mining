@@ -12,6 +12,8 @@ public class MineralRandomizer : MonoBehaviour
     private MeshRenderer meshRenderer;
     private MineralClickHandler clickHandler;
 
+    [SerializeField] private GameObject particles;
+
     private void Start() 
     {
         meshRenderer = GetComponent<MeshRenderer>();
@@ -29,12 +31,14 @@ public class MineralRandomizer : MonoBehaviour
         {
             meshRenderer.material = goldMaterial;
             clickHandler.isPreciousOre = true;
+            particles.SetActive(true);
             return gold;
         }
         else if (spawn > goldSpawnChance)
         {
             meshRenderer.material = rockMaterial;
             clickHandler.isPreciousOre = false;
+            particles.SetActive(false);
             return rock;
         }
 
